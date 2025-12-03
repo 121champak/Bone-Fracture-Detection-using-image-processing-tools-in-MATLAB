@@ -1,42 +1,51 @@
-# Bone-Fracture-Detection-using-image-processing-tools-in-MATLAB
+# Bone-Fracture-Detection-using-core-image-processing-tools-in-MATLAB
 MATLAB project for detecting fractured bones by using simple image processing methods.
  Overview  
 This project detects **bone fractures from X-ray images** using **image processing techniques** in MATLAB. It applies preprocessing, edge detection, and morphological operations to highlight possible fracture regions automatically.
 
 ---
 
-## ⚙️ Steps to Run  
-1. Open MATLAB and set this folder as your **Current Directory**.  
-2. Add X-ray images (PNG/JPG) inside the **data/** folder.  
-3. Run the `main.m` script or execute:
-   ```matlab
-   I = imread('data/sample1.jpg');
-   BW = detect_fracture(I);
-   imshow(I); hold on;
-   stats = regionprops(BW,'BoundingBox');
-   for i = 1:numel(stats)
-       rectangle('Position',stats(i).BoundingBox,'EdgeColor','r','LineWidth',2);
-   end
-   title('Detected Fracture Regions');
-   ```
-4. Red boxes will show possible fracture regions.
+## Roadmap(Methodology) that I have used here is very simple and it is as follows :-
 
----
+The project follows a step-by-step image-processing pipeline:
 
-## 🧠 Tools Used  
-- **MATLAB (R2023b or later)**  
-- **Image Processing Toolbox**
+Image Acquisition
+I have loaded multiple X ray images into the MATLAB drive from datasets from online sources and some are real photographed sources also.Created a separate folder for this and named it DATA.
 
----
+Preprocessing
+Here I have used Contrast enhancement and grayscale conversion for better visibility .
 
-## 📊 Output Example  
-Detected fracture regions are highlighted using **red bounding boxes** on the X-ray image.
+Edge Detection
+Here I have applied "Canny algorithm" to highlight fracture patterns as this is the most classical method in image processing.
 
----
+Morphological Filtering
+Remove noise and strengthen fracture edges.
 
-## 🚀 Future Scope  
-- Improve accuracy using **machine learning or CNN models**.  
-- Develop a **GUI** for clinical use.  
+Region Detection
+Connected components and bounding  Red box marking.
+
+Result Visualization
+Fracture areas are marked using Red rectangular overlays.
+
+
+
+## Future Needs 
+- After learning and practicing **machine learning or CNN models** , I will include this domains in my project and improves its accuracy. As core processing techniques are limited to finite inputs, later with more than thousands of data and deep learning methods the project will get upgraded.  
+- Will definitely Develop a **GUI** for clinical use.
+## Directory
+  Bone-Fracture-Detection/
+│
+├── data/               # X-ray input images
+├── code/               # MATLAB scripts
+│   ├── preprocess.m
+│   ├── edge_detection.m
+│   ├── run_one_img.m
+│   ├── fracture_detect.m
+│   └── main.m
+│
+├── results/            # Output images
+└── README.md
+
 
 ---
 
